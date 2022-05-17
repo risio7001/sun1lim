@@ -1,0 +1,36 @@
+/* frame */
+.header_frame {
+    padding:0 32px;
+    display:flex;
+    flex-direction:row;
+    /* height:60px; */
+    justify-content:space-between;
+    transition: 0.2s;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    /* min-width: ; */
+}
+.header_frame_none{
+    padding:0 32px;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    transition: 0.2s;
+    top: -72px;
+    z-index: 999;
+}
+.header_frame2 {
+    display:flex;
+    flex-direction:'row';
+    justify-content:center;
+}
+/* frame */
+
+.header_font{
+    font-weight:bold;
+    align-self:center;
+}
+.header_font:hover{
+    cursor: pointer;
+}

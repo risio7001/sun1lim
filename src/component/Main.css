@@ -1,0 +1,8 @@
+.frame{
+    padding: 0 22px;
+    display: flex;
+    flex-direction: row;
+}
+.frame_left{
+
+}
