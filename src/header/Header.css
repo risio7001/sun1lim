@@ -3,8 +3,11 @@
     padding:0 32px;
     display:flex;
     flex-direction:row;
+    border-radius: 12px;
+    border-bottom: 1px #eee solid;
     /* height:60px; */
     justify-content:space-between;
+    background-color: white;
     transition: 0.2s;
     position: sticky;
     top: 0;
@@ -14,8 +17,11 @@
 .header_frame_none{
     padding:0 32px;
     display:flex;
+    border-radius: 12px;
+    border-bottom: 1px #eee solid;
     flex-direction:row;
     justify-content:space-between;
+    background-color: white;
     transition: 0.2s;
     top: -72px;
     z-index: 999;
