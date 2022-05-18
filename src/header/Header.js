@@ -27,7 +27,6 @@ const Header = () =>{
     },[reSize])
 
     const scroll = useCallback(() => {
-        // console.log(state.header)
         bef = aft;
 
         aft = window.scrollY;
@@ -84,7 +83,7 @@ const Header = () =>{
                 </p>
             </div>
         </div>
-        <div style={{ textAlign:'center', padding:'0 32px', transition: '0.2s', borderRadius:'12px', borderBottom:'1px #eee solid', backgroundColor:'white', height:'60px', position:'sticky', top: header ? '60px' : 0 , zIndex:99}}>
+        <div style={{ display:'flex',flexDirection:'column', justifyContent:'center', padding:'0 32px', transition: '0.2s', borderRadius:'12px', borderBottom:'1px #eee solid', backgroundColor:'white', height:'60px', position:'sticky', top: header ? '60px' : 0 , zIndex:99}}>
             {/* <p style={{alignSelf:'center'}}> */}
             날짜
             {/* </p> */}
