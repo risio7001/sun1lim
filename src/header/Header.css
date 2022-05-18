@@ -8,7 +8,7 @@
     /* height:60px; */
     justify-content:space-between;
     background-color: white;
-    transition: 0.2s;
+    transition: 0.1s;
     position: sticky;
     top: 0;
     z-index: 999;
@@ -22,6 +22,7 @@
     flex-direction:row;
     justify-content:space-between;
     background-color: white;
+    position: sticky;
     transition: 0.2s;
     top: -72px;
     z-index: 999;

@@ -47,7 +47,8 @@ const Header = () =>{
     },[scroll])
     
     return<>
-        <div className={header ? "header_frame" :"header_frame_none"}>
+        
+        <div className={header ? "header_frame" : "header_frame_none"}>
             <div className="header_frame2">
                 <p className="header_font">
                     blog
@@ -83,7 +84,8 @@ const Header = () =>{
                 </p>
             </div>
         </div>
-        <div style={{ display:'flex',flexDirection:'column', justifyContent:'center', padding:'0 32px', transition: '0.2s', borderRadius:'12px', borderBottom:'1px #eee solid', backgroundColor:'white', height:'60px', position:'sticky', top: header ? '60px' : 0 , zIndex:99}}>
+
+        <div style={{ display:'flex',flexDirection:'column', justifyContent:'center', padding:'0 32px', transition: '0.1s', borderRadius:'12px', borderBottom:'1px #eee solid', backgroundColor:'white', height:'60px', position:'sticky', top: header ? '60px' : 0 , zIndex:99}}>
             {/* <p style={{alignSelf:'center'}}> */}
             날짜
             {/* </p> */}
