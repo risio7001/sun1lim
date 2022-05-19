@@ -1,6 +1,7 @@
 const initialState = {
     "id":"abc",
-    "header":true
+    "header":true,
+    "isMobile": window.innerWidth < 1024
 }
 
 export const Reducer = (state = initialState, action) => {
@@ -10,7 +11,9 @@ export const Reducer = (state = initialState, action) => {
             return;
         case "SET_HEADER":
             state.header = action.header;
-            // console.log(state);
+            return;
+        case "SET_DISPLAY":
+            state.isMobile = action.isMobile;
             return;
         default:
             return state;

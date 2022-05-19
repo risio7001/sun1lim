@@ -15,10 +15,16 @@ const Header = () =>{
     let aft = 0;
 
     const dispatch = useDispatch();
-    const state = useSelector(state=>state);
 
     const reSize = useCallback(()=>{
         setSize(window.innerWidth);
+        if(window.innerWidth < 1024){
+            dispatch({type:"SET_DISPLAY", isMobile:true})
+        }
+        else{
+            dispatch({type:"SET_DISPLAY", isMobile:false})
+        }
+        
     },[])
 
     useEffect(()=>{
