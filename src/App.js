@@ -5,6 +5,7 @@ import { store } from './store';
 import Main from './component/Main';
 import Header from './header/Header';
 import Test from './component/Test';
+import Footer from './component/Footer';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Header/>
         <Main/>
         {/* <Test/> */}
+        <Footer/>
     </Provider>
   );
 }
