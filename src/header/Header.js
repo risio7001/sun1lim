@@ -3,10 +3,16 @@ import '../header/Header.css';
 import {ReactComponent as Earth} from '../img/earth.svg';
 import {ReactComponent as Search} from '../img/search.svg';
 import {ReactComponent as Moon} from '../img/moon.svg';
+import {ReactComponent as Admin} from '../img/admin.svg';
 import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import Login from "../modal/Login";
 
 const Header = () =>{
 
+    let navigation = useNavigate();
+
+    const [isLogin, setIsLogin] = useState(false);
     const [size, setSize] = useState(window.innerWidth);
     // const header = useMemo(()=>)
     const [header, setHeader] = useState('0');
@@ -18,19 +24,26 @@ const Header = () =>{
 
 
     const selectOption = ['All', 'Web', 'Server', 'App'];
-    const [selected, setSelected] = useState(0);
+    // const [selected, setSelected] = useState(0);
+    const state = useSelector((state)=>state);
 
     const dispatch = useDispatch();
 
+
+    // 웹 크기 변할때 반응
     const reSize = useCallback(()=>{
         setSize(window.innerWidth);
-        if(window.innerWidth < 1024){
-            dispatch({type:"SET_DISPLAY", isMobile:true})
+        if(window.innerWidth < 1440){
+            if(window.innerWidth < 715 ){   // mobile 2
+                dispatch({type:"SET_DISPLAY", isMobile:2})
+            }
+            else{       // mobile 1
+                dispatch({type:"SET_DISPLAY", isMobile:1})
+            }
         }
-        else{
-            dispatch({type:"SET_DISPLAY", isMobile:false})
+        else{           // web
+            dispatch({type:"SET_DISPLAY", isMobile:0})
         }
-        
     },[])
 
     useEffect(()=>{
@@ -60,6 +73,7 @@ const Header = () =>{
 
     const handleSelect = (e) => {
         alert(e.target.value);
+        dispatch({type:'SET_CATE', cate:e.target.value.toLowerCase()});
     }
     
     return<>
@@ -74,8 +88,8 @@ const Header = () =>{
             {size > 1024 ?
                 <div className="header_frame2">
                     
-                    <select defaultValue={selectOption[0] } onChange={()=>alert("123")} style={{border:'0px solid red', height:'50%', alignSelf:'center' }}>
-                        <option value={selectOption[1]}>All</option>
+                    <select defaultValue={selectOption[0] } onChange={(e)=>handleSelect(e)}  style={{border:'0px solid red', height:'50%', alignSelf:'center' }}>
+                        <option value={selectOption[0]}>All</option>
                         <option value={selectOption[1]} >Web</option>
                         <option value={selectOption[2]}>Server</option>
                         <option value={selectOption[3]}>App</option>
@@ -104,9 +118,11 @@ const Header = () =>{
                         <p className="header_font" style={{ marginLeft: '12px' }} >
                             <Earth width='25' height='25' />
                         </p>
-                        <p className="header_font" style={{ marginLeft: '12px' }} >
-                            <Moon width='25' heigh='25' />
-                        </p>
+                        {/* <Link to={'/admin'}> */}
+                            <p onClick={()=>setIsLogin(true)} className="header_font" style={{ marginLeft: '12px' }} >
+                                <Admin width='25' heigh='25' />
+                            </p>
+                        {/* </Link> */}
                     </div>
                     : 
                     <select defaultValue={selectOption[0] } onChange={(e)=>handleSelect(e)} style={{border:'0px solid red', height:'50%', alignSelf:'center' }}>
@@ -126,6 +142,7 @@ const Header = () =>{
             {/* </p> */}
             
         </div>
+        {isLogin ? <Login setIsLogin={setIsLogin} navigation={navigation}/> : null}
     </>
 
 }
